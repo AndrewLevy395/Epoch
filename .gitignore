@@ -1,0 +1,4 @@
+# file: ~/.gitignore
+out/
+.idea/
+*.iml
