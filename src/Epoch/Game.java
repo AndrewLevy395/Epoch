@@ -4,20 +4,22 @@ import java.util.ArrayList;
 
 public class Game {
 
-    public ArrayList<Leader> allLeaders= new ArrayList<Leader>();
+    private Team userTeam;
+    private Team oppTeam;
+    private ArrayList<Leader> allLeaders= new ArrayList<Leader>();
 
     public Game(){
 
         createLeaders();
 
-        Team userTeam = new Team(allLeaders.get(0));
-        Team oppTeam = new Team(allLeaders.get(1));
+        this.userTeam = new Team(allLeaders.get(0));
+        this.oppTeam = new Team(allLeaders.get(1));
 
         System.out.println(userTeam.getEpoch().getName() + ":");
-        userTeam.getEpoch().printCards();
+        userTeam.printHand();
 
         System.out.println(oppTeam.getEpoch().getName() + ":");
-        oppTeam.getEpoch().printCards();
+        oppTeam.printHand();
     }
 
     /**
@@ -29,5 +31,21 @@ public class Game {
 
         allLeaders.add(new Leader("Emperor", roman));       //Emperor - Roman
         allLeaders.add(new Leader("President", modern));    //President - Modern
+    }
+
+    /**
+     * Gets the opponents team info
+     * @return Opponents team info as type team
+     */
+    public Team getOppTeam(){
+        return this.oppTeam;
+    }
+
+    /**
+     * Gets the opponents team info
+     * @return Opponents team info as type team
+     */
+    public Team getUserTeam(){
+        return this.userTeam;
     }
 }

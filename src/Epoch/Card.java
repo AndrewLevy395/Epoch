@@ -1,31 +1,43 @@
 package Epoch;
 
-public class Card {
+abstract class Card {
     private String name;
-    private Integer attack;
-    private Integer defense;
     private Integer cost;
+    private Integer handLocation;
 
-    public Card(String name, Integer attack, Integer defense, Integer cost){
+    public Card(String name, Integer cost){
         this.name = name;
-        this.attack = attack;
-        this.defense = defense;
         this.cost = cost;
     }
+
+    abstract Integer getAttack();
+    abstract Integer getDefense();
 
     public String getName(){
         return this.name;
     }
 
-    public Integer getAttack(){
-        return this.attack;
-    }
-
-    public Integer getDefense(){
-        return this.defense;
-    }
-
+    /**
+     * Get the cost of the card
+     * @return Cost of card as an Integer
+     */
     public Integer getCost(){
         return this.cost;
+    }
+
+    /**
+     * Set the hand location number of the card
+     * @param loc Hand location number as type Integer to be set
+     */
+    public void setHandLocation(Integer loc){
+        this.handLocation = loc;
+    }
+
+    /**
+     * Get the hand location number of the card
+     * @return Hand location number as type Integer
+     */
+    public Integer getHandLocation(){
+        return this.handLocation;
     }
 }

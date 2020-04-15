@@ -10,7 +10,7 @@ public class AppGUI {
     Integer width;
     Integer height;
 
-    public AppGUI(Integer width, Integer height){
+    public AppGUI(Integer width, Integer height, Game game){
         //set height and width
         this.width = width;
         this.height = height;
@@ -30,8 +30,8 @@ public class AppGUI {
         contentPane.setLayout(null);
 
         //display board
-        BoardGUI boardgui = new BoardGUI();
-        boardgui.setForeground(Color.YELLOW);
+        BoardGUI boardgui = new BoardGUI(game);
+        boardgui.setForeground(Color.WHITE);
         boardgui.setBounds(5, 5, 1054, 861);
         contentPane.add(boardgui);
 
